@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume and JD Upload</title>
+</head>
+
+<body>
+    <h1>Upload Your Resume and Job Description</h1>
+    <form action="/magic" method="post" enctype="multipart/form-data">
+        <label for="resume">Resume (PDF or DOCX):</label>
+        <input type="file" name="resume" id="resume" accept=".pdf,.docx" required><br><br>
+
+        <label for="jd">Job Description (TXT):</label>
+        <input type="text" name="jd" id="jd"><br><br>
+
+        <label for="additional_info">additional_info :</label>
+        <input type="text" name="additional_info" id="additional_info"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
