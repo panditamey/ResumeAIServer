@@ -2,6 +2,7 @@ from flask import Flask
 from utils import process_resume_and_jd
 from flask import request, render_template
 import os
+import tempfile
 
 app = Flask(__name__)
 
@@ -19,10 +20,11 @@ def magic():
         if additional_info == '':
             additional_info = None
         
-        resume_path = 'temp/' + resume_file.filename
-        resume_file.save(resume_path)
-        
-        response = process_resume_and_jd(resume_path, jd, 'pdf', 'txt', additional_info)
+        with tempfile.NamedTemporaryFile(delete=False) as resume_temp:
+            resume_temp.write(resume_file.read())
+            resume_path = resume_temp.name
+            
+            response = process_resume_and_jd(resume_path, jd, 'pdf',  additional_info)
         
         os.remove(resume_path)
         

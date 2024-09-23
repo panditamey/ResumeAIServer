@@ -114,7 +114,7 @@ def generate_ats_friendly_resume(resume_text, jd_text, additional_info=None):
     resume_data = extract_json(response.content)
     return resume_data
 
-def process_resume_and_jd(resume_file_path, jd_text, resume_type, jd_type, additional_info=None):
+def process_resume_and_jd(resume_file_path, jd_text, resume_type, additional_info=None):
     resume_text = extract_text_from_pdf(resume_file_path)
     
     ats_friendly_resume = generate_ats_friendly_resume(resume_text, jd_text, additional_info)
