@@ -110,4 +110,4 @@ def static_json():
     "summary": "To achieve a responsible position and efficiently contribute to the industry by leveraging new technologies. Aiming to expand my knowledge through hard work and continuous learning."
 })
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000 )
